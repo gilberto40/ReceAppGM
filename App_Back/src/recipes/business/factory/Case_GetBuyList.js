@@ -15,16 +15,16 @@ class Case_GetBuyList {
         this.pdfMaker.generate(missingIngredients, 'buylist.pdf');
     }
 
-    async getMissing(inventory, recipe) {
+    getMissing(inventory, recipe) {
 
         const missingIngredients = [];
     
-        missingIngredients.push([receta.title, ""]);
+        missingIngredients.push([recipe.title, "", ""]);
     
-        missingIngredients.push([{ text: 'Ingredientes', bold: true }, { text: 'Cantidad', bold: true }]);
+        missingIngredients.push([{ text: 'Ingredientes', bold: true }, { text: 'Cantidad', bold: true }, ""]);
     
         recipe.stockIngredients.forEach(stockIngredient => {
-            //busca cada ingrediente de la receta en el inventario del usuario
+            //busca cada ingrediente de la recipe en el inventario del usuario
             const ingredientFound = inventory.find((stockItem) => stockItem.ingredient.name == stockIngredient.ingredient.name);
     
             if (ingredientFound) {

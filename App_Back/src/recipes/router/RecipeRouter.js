@@ -35,7 +35,7 @@ class RecipeRouter {
 
         recipeRouter.post('/recipes/buylist', async(req, res, next) => {
             try {
-                await (await cuGetBuyList).getMissingIngredients(req.query.recipe, req.query.user)
+                await (await cuGetBuyList).getMissingIngredients(req.query.idRecipe, req.query.idUser)
                 res.status(200).send({msg: 'BuyList Sent!'})
             } catch(error) {
                 next(error)

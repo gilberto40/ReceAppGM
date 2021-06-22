@@ -6,7 +6,7 @@ async function main(){
     let client = await new AxiosClient(`http://localhost:${server.port}/api`)
 
     
-    const { data } = await client.getBuyList(0, 0)
+    const { data } = await client.getBuyList(1, 0)
 
     console.log(data)
 
